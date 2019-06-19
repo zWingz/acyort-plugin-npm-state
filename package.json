@@ -1,0 +1,22 @@
+{
+  "name": "acyort-template-npm-state",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "poi --serve"
+  },
+  "devDependencies": {
+    "@poi/plugin-typescript": "^12.2.1",
+    "acyort": "^3.4.0",
+    "acyort-server": "^2.4.0",
+    "poi": "^12.6.10",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.5.2"
+  }
+}
