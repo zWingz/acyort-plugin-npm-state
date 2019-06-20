@@ -9,7 +9,7 @@
     "target": "es6",
     "module" : "esNext",
     "moduleResolution": "node",
-    "types": ["react", "node", "jest"],
+    "types": ["react", "node"],
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     // "experimentalDecorators": true

@@ -1,0 +1,50 @@
+
+/* 下拉组件 start */
+.common-select-container {
+  display: flex;
+  min-width: 125px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #1c1f3d;
+  border: 1px solid #e3e3e9;
+  border-radius: 3px;
+  background: #fff;
+  line-height: 32px;
+  height: 32px;
+  .select-btn {
+    flex: 1 1 auto;
+    padding: 0 12px;
+    cursor: pointer;
+    font-size: 12px;
+    &.placeholder {
+      color: #a0a0a0;
+    }
+  }
+  .select-dropdown-icon {
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    color: #6a82ec;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    font-size: 14px;
+  }
+  &.show {
+    user-select: none;
+    .select-dropdown-icon {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.select-option-dropdown {
+  max-height: 250px;
+  .select-option {
+    &.active {
+      background: #7c92f5;
+      color: #fff;
+    }
+  }
+}

@@ -1,4 +1,5 @@
-const BaseUrl = 'https://api.npmjs.org'
+const API_URL = 'https://api.npmjs.org'
+const REGISTRY_API = 'http://registry.npmjs.org'
 
 function parseUrl(url: string, params = {}) {
   return url.replace(/(:\w+)/g, (match, $1) => {
@@ -6,23 +7,29 @@ function parseUrl(url: string, params = {}) {
   })
 }
 
-type RangeType = 'last-month' | 'last-day' | 'last-week' | string
+type RangeType = 'last-month' | 'last-week' | string
+
+export type NpmDownloadCount = {
+  downloads: { downloads: number; day: string }[]
+  start: string
+  end: string
+  package: string
+}
 
 class Http {
   fetch(url, options: RequestInit = {}) {
-    return fetch(`${BaseUrl}/${url}`, {
+    return fetch(url, {
       ...options,
       method: options.method || 'GET'
     }).then(r => r.json())
   }
-  async getRange(pkg: string, range: RangeType) {
+  async getRange(pkg: string, range: RangeType): Promise<NpmDownloadCount> {
     const url = parseUrl('downloads/range/:range/:pkg', {
       pkg,
       range
     })
-    console.log(url)
-    const data = await this.fetch(url)
-    console.log(data)
+    const data = await this.fetch(`${API_URL}/${url}`)
+    return data
   }
 }
 

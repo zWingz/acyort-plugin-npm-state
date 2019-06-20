@@ -7,9 +7,15 @@
     "dev": "poi --serve"
   },
   "devDependencies": {
+    "@antv/g2": "^3.5.8-beta.1",
     "@poi/plugin-typescript": "^12.2.1",
+    "@types/node": "^12.0.8",
+    "@types/react": "^16.8.21",
+    "@types/react-dom": "^16.8.4",
     "acyort": "^3.4.0",
     "acyort-server": "^2.4.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
     "poi": "^12.6.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -18,5 +24,8 @@
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.2"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6"
   }
 }
