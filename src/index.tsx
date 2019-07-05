@@ -3,8 +3,11 @@ import * as ReactDOM from 'react-dom'
 import { http } from './http'
 import { NpmCount } from './npmCount'
 import { Provider } from './Context'
-import Select from './component/Select'
+// import Select from './component/Select'
+import { Select } from 'antd'
 import './style.less'
+
+const { Option } = Select
 
 declare const npmRepo: string[]
 
@@ -27,7 +30,11 @@ function App() {
           />
         </svg>
         <span style={{ marginRight: 'auto' }}>Downloads Count</span>
-        <Select value={range} options={RANGE_OPTIONS} onChange={setRange} all={false}/>
+        <Select value={range} onChange={(v) => setRange(v)}>
+          {
+            RANGE_OPTIONS.map(each => <Option key={each.name} value={each.value}>{each.name}</Option>)
+          }
+        </Select>
       </h2>
       <div className='chart-wrapper'>
         {NPM_REPO.map(each => (

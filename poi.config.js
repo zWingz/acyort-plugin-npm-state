@@ -3,24 +3,27 @@ module.exports = {
   plugins: [
     {
       resolve: '@poi/plugin-typescript',
-      options: {}
+      options: {
+        babel: true
+      }
     }
   ],
-  configureWebpack: {
-    resolve: {
-      extensions: ['.less']
-    }
+  babel: {
+  },
+  configureWebpack(config) {
+    config.resolve.extensions.push('.less')
+    return config
   },
   constants: {
     npmRepo: JSON.stringify([
-      // '@zzwing/react-image',
-      // '@zzwing/react-table',
-      // '@zzwing/react-form-wrapper',
-      // 'husky-tslint-pre-commit'
-      'fundebug-javascript',
-      'fundebug-vue',
-      'fundebug-wxjs',
-      'fundebug-nodejs'
+      '@zzwing/react-image',
+      '@zzwing/react-table',
+      '@zzwing/react-form-wrapper',
+      'husky-tslint-pre-commit'
+      // 'fundebug-javascript',
+      // 'fundebug-vue',
+      // 'fundebug-wxjs',
+      // 'fundebug-nodejs'
     ])
   }
 }
