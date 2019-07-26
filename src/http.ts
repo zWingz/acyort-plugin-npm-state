@@ -7,7 +7,7 @@ function parseUrl(url: string, params = {}) {
   })
 }
 
-type RangeType = 'last-month' | 'last-week' | string
+export type RangeType = [string | undefined, string | undefined]
 
 export type NpmDownloadCount = {
   downloads: { downloads: number; day: string }[]
@@ -26,7 +26,7 @@ class Http {
   async getRange(pkg: string, range: RangeType): Promise<NpmDownloadCount> {
     const url = parseUrl('downloads/range/:range/:pkg', {
       pkg,
-      range
+      range: `${range[0]}:${range[1]}`
     })
     const data = await this.fetch(`${API_URL}/${url}`)
     return data

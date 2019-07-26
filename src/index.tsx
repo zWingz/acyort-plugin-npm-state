@@ -1,25 +1,37 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { http } from './http'
+import { RangeType } from './http'
 import { NpmCount } from './npmCount'
-import { Provider } from './Context'
 // import Select from './component/Select'
-import { Select } from 'antd'
+import { DatePicker } from 'antd'
+import * as moment from 'moment'
 import './style.less'
+import { RangePickerValue } from 'antd/lib/date-picker/interface'
 
-const { Option } = Select
-
+const { RangePicker } = DatePicker
+function disabledDate(current) {
+  // Can not select days before today and today
+  return current && current > moment().endOf('day')
+}
 declare const npmRepo: string[]
-
 const NPM_REPO = npmRepo
-
-const RANGE_OPTIONS = ['last-week', 'last-month'].map(each => ({
-  name: each,
-  value: each
-}))
-
+const start = moment().subtract(7, 'days')
+const end = moment()
+const FORMAT = 'YYYY-MM-DD'
 function App() {
-  const [range, setRange] = React.useState('last-week')
+  const [value, setRange] = React.useState<{
+    range: RangePickerValue
+    format: RangeType
+  }>({
+    range: [start, end],
+    format: [start.format(FORMAT), end.format(FORMAT)]
+  })
+  const onChange = React.useCallback((arg1, arg2) => {
+    setRange({
+      range: arg1,
+      format: arg2
+    })
+  }, [])
   return (
     <div className='app-container'>
       <h2 className='app-title'>
@@ -30,15 +42,15 @@ function App() {
           />
         </svg>
         <span style={{ marginRight: 'auto' }}>Downloads Count</span>
-        <Select value={range} onChange={(v) => setRange(v)}>
-          {
-            RANGE_OPTIONS.map(each => <Option key={each.name} value={each.value}>{each.name}</Option>)
-          }
-        </Select>
+        <RangePicker
+          disabledDate={disabledDate}
+          value={value.range}
+          onChange={onChange}
+        />
       </h2>
       <div className='chart-wrapper'>
         {NPM_REPO.map(each => (
-          <NpmCount key={each} repo={each} range={range}/>
+          <NpmCount key={each} repo={each} range={value.format} />
         ))}
       </div>
     </div>
