@@ -1,15 +1,1 @@
-<html lang='en'>
-<head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
-</head>
-<body>
-  <!-- <div>test</div> -->
-  <div id='app'></div>
-  <script>
-    window.NPM_REPO = JSON.parse('{{ npmRepo|json }}')
-  </script>
-</body>
-</html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><title>{{ config.title }}</title><link rel="stylesheet" href="{{ _url('css/chunk-vendors.chunk.css') }}"/><link rel="stylesheet" href="{{ _url('css/index.chunk.css') }}"/></head><body><div id="app"></div><script>window.NPM_REPO = {{ config.npmRepo|json }}</script><script src="{{ _url('script/runtime~index.js') }}"></script><script src="{{ _url('script/chunk-vendors.chunk.js') }}"></script><script src="{{ _url('script/index.chunk.js') }}"></script></body></html>

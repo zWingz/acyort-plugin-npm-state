@@ -1,0 +1,16 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{ config.title }}</title>
+    <%= htmlWebpackPlugin.files.css.map(file => `<link rel="stylesheet" href="{{ _url('css/${file.split('/').pop()}') }}" />`).join('')%>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.NPM_REPO = {{ config.npmRepo|json }}
+    </script>
+    <%= htmlWebpackPlugin.files.js.map(file => `<script src="{{ _url('script/${file.split('/').pop()}') }}"></script>`).join('')%>
+  </body>
+</html>

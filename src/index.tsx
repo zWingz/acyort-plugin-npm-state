@@ -13,8 +13,7 @@ function disabledDate(current) {
   // Can not select days before today and today
   return current && current > moment().endOf('day')
 }
-declare const npmRepo: string[]
-const NPM_REPO = npmRepo
+declare const NPM_REPO: string[]
 const start = moment().subtract(7, 'days')
 const end = moment()
 const FORMAT = 'YYYY-MM-DD'

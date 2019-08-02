@@ -5,8 +5,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "poi --serve",
-    "build": "poi"
+    "build": "poi --prod",
+    "test": "yarn build && acyort flow"
   },
+  "files": [
+    "templates"
+  ],
   "devDependencies": {
     "@antv/g2": "^3.5.8-beta.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.0",

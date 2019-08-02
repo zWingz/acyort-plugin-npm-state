@@ -3,7 +3,5 @@ module.exports = (acyort) => {
     template: 'index',
     path: 'index.html'
   })
-  const config = acyort.config.get()
-  console.log(config);
   acyort.util.copySource()
 }
