@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "poi --serve",
     "build": "poi --prod",
-    "test": "yarn build && acyort flow"
+    "test": "yarn build && acyort flow",
+    "prepublish": "yarn build"
   },
   "files": [
     "templates",
