@@ -1,21 +1,8 @@
-title: 'zWing'
+title: 'Npm'
 
-menu:
-  Tags: /tags
-  Archives: /archives
-  About: /about
-
-template: donob
-
-repository: zWingz/my-blog-config
-
-gitToken: 
+template: ./
 
 public: ./temp
 
-issuesCache: true
-
 plugins:
-  - acyort-plugin-fetch-issues
-  - acyort-donob-renderer
-  - acyort-server
+  - ./index.js

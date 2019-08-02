@@ -1,5 +1,5 @@
 {
-  "name": "acyort-template-npm-state",
+  "name": "acyort-plugin-npm-state",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -9,7 +9,8 @@
     "test": "yarn build && acyort flow"
   },
   "files": [
-    "templates"
+    "templates",
+    "scripts"
   ],
   "devDependencies": {
     "@antv/g2": "^3.5.8-beta.1",
