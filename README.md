@@ -2,7 +2,7 @@
 
 acyort plugin to show npm package download count
 
-[Demo](http://zwing.site/npm-state/)
+[Demo](http://zwing.site/acyort-plugin-npm-state)
 
 ## Usage
 
